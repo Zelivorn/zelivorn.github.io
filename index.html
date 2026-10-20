@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>猎户星云 · 鸿蒙账号与云端身份认证工具</title>
+  <meta name="description" content="猎户星云是面向鸿蒙开发者的账号与云端身份认证工具，支持匿名登录、自定义票据登录和微信登录。">
+  <style>
+    :root{--ink:#14213d;--muted:#5b6b83;--line:#e5ebf5;--brand:#1677ff;--soft:#f4f8ff;--bg:#ffffff}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}
+    a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+    .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+    header{padding:22px 0;border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px}
+    .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#1677ff,#4facfe);display:grid;place-items:center;color:#fff;font-weight:800}
+    .nav-links{display:flex;gap:20px;font-size:14px;color:var(--muted)}
+    .hero{padding:72px 0 56px;background:linear-gradient(180deg,#f7fbff,#fff)}
+    .hero h1{font-size:48px;line-height:1.15;margin:0 0 16px;letter-spacing:-1px}
+    .hero p{max-width:680px;font-size:19px;color:var(--muted);margin:0 0 28px}
+    .badge{display:inline-block;padding:6px 12px;border-radius:999px;background:#eaf3ff;color:#0b5bd3;font-size:13px;font-weight:600;margin-bottom:18px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;border:1px solid var(--brand)}
+    .btn.primary{background:var(--brand);color:#fff}.btn.secondary{background:#fff;color:var(--brand)}
+    section{padding:56px 0;border-top:1px solid var(--line)}
+    h2{font-size:30px;margin:0 0 12px}h3{margin:0 0 8px;font-size:18px}
+    .lead{color:var(--muted);margin:0 0 28px;max-width:760px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
+    .card p{color:var(--muted);margin:0;font-size:15px}
+    .flow{background:var(--soft);border:1px solid #dbe8ff;border-radius:16px;padding:24px}
+    .flow ol{margin:0;padding-left:22px;color:var(--muted)}
+    .flow li{margin:8px 0}.flow strong{color:var(--ink)}
+    .shots{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+    .shot{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+    .shot img{display:block;width:100%;height:auto}
+    .shot .cap{padding:10px 14px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+    .notice{background:#fffaf0;border:1px solid #ffe2b8;border-radius:12px;padding:16px 18px;color:#7a4b00;font-size:14px}
+    footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+    @media(max-width:860px){.grid{grid-template-columns:1fr 1fr}.hero h1{font-size:38px}.shots{grid-template-columns:1fr}}
+    @media(max-width:560px){.grid{grid-template-columns:1fr}.nav-links{display:none}.hero{padding:48px 0 36px}.hero h1{font-size:32px}}
+  </style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="brand"><span class="mark">星</span><span>猎户星云</span></div><nav class="nav-links"><a href="#features">功能</a><a href="#flow">运行流程</a><a href="#shots">界面</a><a href="#download">获取</a></nav></div></header>
+<main>
+  <div class="hero"><div class="wrap">
+    <div class="badge">HarmonyOS · CloudBase Auth</div>
+    <h1>猎户星云</h1>
+    <p>面向鸿蒙开发者的账号与云端身份认证工具。用于验证 CloudBase Auth 的匿名登录、自定义票据登录、微信登录和用户信息读取链路。</p>
+    <div class="actions"><a class="btn primary" href="https://gitcode.com/orion-nebula-project/cloudbase_auth" target="_blank" rel="noopener">查看项目与源码</a><a class="btn secondary" href="#flow">查看运行流程</a></div>
+  </div></div>
+  <section id="features"><div class="wrap">
+    <h2>核心功能</h2><p class="lead">猎户星云是开发者自测工具，不提供公开商业服务；所有登录行为均通过 CloudBase Auth 完成。</p>
+    <div class="grid">
+      <div class="card"><h3>匿名登录</h3><p>调用 CloudBase 匿名登录，获取并展示匿名登录态。</p></div>
+      <div class="card"><h3>自定义票据登录</h3><p>输入自定义票据，验证票据登录与错误返回。</p></div>
+      <div class="card"><h3>微信登录</h3><p>拉起微信授权，获取临时 code，由 CloudBase 换取登录态。</p></div>
+      <div class="card"><h3>用户信息</h3><p>读取并展示当前登录用户的 uid、环境和登录类型。</p></div>
+    </div>
+  </div></section>
+  <section id="flow"><div class="wrap">
+    <h2>应用运行流程</h2><p class="lead">应用首页提供三种登录入口，每一种入口都会回到统一的登录态展示页。</p>
+    <div class="flow"><ol>
+      <li><strong>打开猎户星云</strong>，首页显示匿名登录、自定义票据登录、微信登录三个入口。</li>
+      <li><strong>匿名登录</strong>：点击匿名登录 → 调用 <code>signInAnonymously</code> → 展示 ANONYMOUS 登录态或错误信息。</li>
+      <li><strong>自定义票据登录</strong>：输入票据 → 点击票据登录 → 调用 <code>signInWithTicket</code> → 展示 CUSTOM 登录态或票据错误。</li>
+      <li><strong>微信登录</strong>：点击微信登录 → 检测微信客户端 → 拉起微信授权 → 获取临时 code → 调用 <code>signInByWx</code> → CloudBase 换取登录态并读取用户信息。</li>
+      <li><strong>结果展示</strong>：统一展示登录状态、用户信息和错误信息；支持退出登录并清理本地登录态。</li>
+    </ol></div>
+  </div></section>
+  <section id="shots"><div class="wrap">
+    <h2>应用界面</h2><p class="lead">以下界面来自鸿蒙应用真机验证工装，展示登录入口、登录结果与用户信息读取。</p>
+    <div class="shots">
+      <div class="shot"><img src="screenshot-login.jpeg" alt="猎户星云登录入口界面"><div class="cap">登录入口：匿名登录、票据登录、微信登录</div></div>
+      <div class="shot"><img src="screenshot-result.jpeg" alt="猎户星云登录结果与用户信息"><div class="cap">登录结果：登录态、用户信息与错误提示</div></div>
+    </div>
+    <p class="notice">说明：猎户星云是面向开发者的登录链路验证工具，当前未上架应用市场；微信登录能力依赖微信客户端与微信开放平台配置。</p>
+  </div></section>
+  <section id="download"><div class="wrap">
+    <h2>获取与反馈</h2><p class="lead">项目源码、接入说明和问题反馈均在 GitCode 仓库维护。</p>
+    <p><a class="btn primary" href="https://gitcode.com/orion-nebula-project/cloudbase_auth" target="_blank" rel="noopener">打开 cloudbase_auth 仓库</a></p>
+  </div></section>
+</main>
+<footer><div class="wrap">© 2026 猎户星云 · CloudBase Auth 鸿蒙化验证工具</div></footer>
+</body>
+</html>
